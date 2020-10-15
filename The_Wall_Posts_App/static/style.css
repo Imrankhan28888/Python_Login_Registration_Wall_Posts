@@ -9,7 +9,7 @@ h1,h2,h3,h4,h5,p,label {
 nav {
     background-color:gray;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-bottom: 1em;
     padding: 1em;
 }
@@ -28,15 +28,7 @@ nav > a {
     border-color: #007bff;
 }
 
-a {
-    color: yellow;
-    font-weight: bold;
-    
-}
 
-/* form {
-    margin: 0 40px;
-} */
 
 #reg {
 
@@ -75,5 +67,102 @@ li {
 list-style: none;
 }
 
+#post {
+padding: 20px;
+margin-left: 30%;
+margin-right: 30%;
+}
 
 
+#posts {
+    background-color: black;
+    margin-left: 20%;
+    margin-right: 20%;
+    
+}
+
+.one_post {
+    background-color: teal;
+    padding: 25px;
+    margin: 25px;
+    min-height: 100px;
+    border-radius: 20px;
+    font-style: italic;
+    
+}
+
+.one_post a {
+    text-shadow: 2px 2px 2px black;
+    margin-left: 75%;
+    font-size: large;
+    color: yellow;
+    font-weight: bold;
+}
+
+.post{
+    font-size: auto;
+    text-align: center;
+}
+
+#comment{
+
+    padding: 15px;
+    margin-top: 10px;
+  
+
+}
+
+#comment a {
+
+    text-shadow: 2px 2px 2px blue;
+    margin-left: auto;
+    font-size: medium;
+    color: orange;
+    font-weight: bold;
+
+}
+
+#subcomment {
+    outline: double white;
+    padding: 15px;
+
+}
+
+#profile_edit {
+
+    background-color: white;
+    padding: 15px;
+    
+}
+
+#profile_edit h3 {
+
+color: green;
+
+}
+
+#profile {
+
+    margin-top: 40px;
+    margin-left: 20px;
+    color: #00ffb4;
+
+}
+
+
+#likes a {
+
+    text-shadow: 2px 2px 2px black;
+    margin-left: 25%;
+    font-size: large;
+    color: blue;
+    font-weight: bold;
+}  
+
+
+#message p {
+
+    font-size: xx-large;
+    color: goldenrod;
+
+}

@@ -47,5 +47,32 @@ class User(models.Model):
     last_name = models.CharField(max_length=45)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     objects = UserManager()
+
+class Message(models.Model):
+    message = models.CharField(max_length=255) 
+    user = models.ForeignKey(User, related_name="user_has_messages",on_delete=models.CASCADE)
+    user_likes = models.ManyToManyField(User, related_name='liked_posts')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Comment(models.Model):
+    comment = models.CharField(max_length=255)
+    message = models.ForeignKey(Message, related_name="message_has_comments",on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="user_has_comments",on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+
+
+
+
+    
+
+
+

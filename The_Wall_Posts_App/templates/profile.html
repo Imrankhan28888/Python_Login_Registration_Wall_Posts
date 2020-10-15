@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!-- Attaching Boot Strap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Attaching CSS files -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}"> 
+    <!-- Attaching JS files  -->
+    <!-- <script src="{% static 'js/script.js' %}"></script>  -->
+</head>
+<body>
+    <nav>
+        <h2>Coding Dojo Wall</h2>
+        <h3>Welcome, {{ user.first_name }} {{user.last_name}}!</h3>
+        <a href="/logout">Log Out</a>
+    </nav>
+
+    <div id="profile_edit">
+        <h3>Edit User Form:</h3>
+        <form action="/edit/{{user.id}}" method=POST>
+            {% csrf_token %}
+        First Name: <input type="text" name='fname' value={{user.first_name}}>
+        Last Name: <input type="text" name='lname' value={{user.last_name}}>
+        Email: <input type="text" name='email' value={{user.email}}>
+        <input type="submit">
+        </form>
+    </div>
+     
+    <div id="profile">
+        <h4>My Messages</h4>
+        {% for message in user.user_has_messages.all %}
+        <p>{{message.message}}</p>
+        {% endfor %}
+        
+        <h4>My Comments</h4>
+        {% for comment in user.user_has_comments.all %}
+        <p>{{comment.comment}}</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
+
+
+          
+        
+    
