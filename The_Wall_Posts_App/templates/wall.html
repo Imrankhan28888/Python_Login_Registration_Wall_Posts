@@ -39,17 +39,26 @@
     <div id='posts'>
         {% for info in all_messages %}
         <div class='one_post'>
-            <a href="/delete_Mesg/{{info.id}}">Delete Message</a>
+            <!-- <a href="/delete_Mesg/{{info.id}}">Delete Message</a> -->
+            <form action="/delete_Mesg/{{info.id}}" method=POST>
+                {% csrf_token %}
+                <input type="submit" class="btn btn-sm btn-danger" value='Delete Message'>
+            </form>
+            
             <div id="message">
                 <p class='post'>{{info.message}}</p>
                 
             </div>
             <div id="likes">
                 <p class='post'>Message Posted ON: - {{info.created_at}}</p>
-                <a href="/user_profile/{{info.user.id}}">{{info.user.first_name}} {{info.user.last_name}}</a>
-                <a href="/like/{{info.id}}">Like Post {{ info.user_likes.count }}</a>
-                
+                <a href="/user_profile/{{info.user.id}}">Posted By: {{info.user.first_name}} {{info.user.last_name}}</a>
+                <form action="/like/{{info.id}}" method=POST>
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-sm btn-warning" value='Liked {{ info.user_likes.count }}'>
+                    
+                </form> 
             </div>
+ 
             <form action="/add_comment/{{info.id}}" method=POST>
                 {% csrf_token %}
                 <!-- Comment: <input type="text" name='comment'> -->

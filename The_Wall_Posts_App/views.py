@@ -65,7 +65,8 @@ def wall(request):
 def post_message(request):
     if 'user_id' not in request.session:
         return redirect('/')
-    Message.objects.create(
+    if request.method == "POST":
+        Message.objects.create(
             message=request.POST['message'],
             user = User.objects.get(id=request.session['user_id'])
         )
